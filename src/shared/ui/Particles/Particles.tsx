@@ -4,7 +4,7 @@ import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
 const ParticlesComponent = () => {
-  const options = useMemo(() => {
+  const options: any = useMemo(() => {
     return {
       fullScreen: {
         enable: true,
@@ -126,7 +126,7 @@ const ParticlesComponent = () => {
     };
   }, []);
 
-  const particlesInit = async (main) => {
+  const particlesInit = async (main: any) => {
     await loadFull(main);
   };
 

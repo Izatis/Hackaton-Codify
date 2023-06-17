@@ -39,7 +39,7 @@
       li {
         a {
           font-weight: 700;
-          @include adaptive-value("font-size", 18, 5, 0);
+          @include adaptive-value("font-size", 20, 10, 0);
           line-height: 130%;
           color: #322f55;
         }

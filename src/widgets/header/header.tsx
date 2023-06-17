@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
-import { Button } from "@mui/material";
 import MyButton from "shared/ui/animate-button";
 import { Link } from "react-router-dom";
 interface ILine {
@@ -153,23 +152,23 @@ const Header: FC = () => {
         </>
 
         <div className={s.header__buttons}>
-          <Link to='/register'>
+          <Link to="/register">
             <MyButton
               background="#7329c2"
               hoverBackground="#03d665"
-              variant="contained"
+              type="primary"
             >
               Войти
             </MyButton>
           </Link>
 
-          <Link to='/login'>
+          <Link to="/login">
             <MyButton
-              background="#7329c2"
-              hoverBackground="#03d665"
-              variant="contained"
+          background="#7329c2"
+          hoverBackground="#03d665"
+              type="primary"
             >
-              Войти
+              Регистрация
             </MyButton>
           </Link>
           {/* <TranslateButton />

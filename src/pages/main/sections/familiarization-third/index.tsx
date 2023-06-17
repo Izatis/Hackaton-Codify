@@ -2,9 +2,9 @@ import s from "./style.module.scss";
 
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import image from "shared/image/imageSecond.png";
+import image from "shared/image/imageFourth.png";
 
-const FamiliarizationFirst = () => {
+const FamiliarizationThird = () => {
   const [t] = useTranslation();
 
   return (
@@ -19,8 +19,8 @@ const FamiliarizationFirst = () => {
           hidden: { opacity: 0, x: -100 },
         }}
       >
-        <h2>{t("familiarization-first.0")}</h2>
-        <p>{t("familiarization-first.1")}</p>
+        <h2>{t("familiarization-third.0")}</h2>
+        <p>{t("familiarization-third.1")}</p>
       </motion.div>
       <div className={s.familiarization__image}>
         <img src={image} alt="familiarization image" />
@@ -29,4 +29,4 @@ const FamiliarizationFirst = () => {
   );
 };
 
-export default FamiliarizationFirst;
+export default FamiliarizationThird;

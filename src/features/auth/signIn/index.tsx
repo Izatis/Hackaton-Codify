@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import s from "./signIn.module.scss";
 
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import MyButton from "shared/ui/animate-button";
-// import ParticlesComponent from "shared/ui/Particles/Particles";
+import ParticlesComponent from "shared/ui/Particles/Particles";
 
 interface IUserLogin {
   username: string;
@@ -12,7 +12,6 @@ interface IUserLogin {
 }
 
 const SignIn: FC = () => {
-  const [token, setToken] = useState("");
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   // ---------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +28,7 @@ const SignIn: FC = () => {
 
   return (
     <section className={s.signIn}>
-      {/* <ParticlesComponent /> */}
+      <ParticlesComponent />
       <h2>Авторизация</h2>
       <Form form={form} name="sign-in-form" onFinish={handleSubmit}>
         <Form.Item
