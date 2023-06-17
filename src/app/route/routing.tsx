@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 
 const Layout = lazy(() => import('../../app/layout/layout'))
 const RegisterForm = lazy(() => import('../../features/auth/register/ui/register'))
-const HomePage = lazy(() => import('../../pages/hero/hero'))
+const HomePage = lazy(() => import('../../pages/main/ui/index'))
 
 export const Routing: FC = () => {
 
