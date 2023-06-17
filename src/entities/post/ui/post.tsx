@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import s from './post.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faThumbsDown, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 
 const Post: FC = () => {
   return (
@@ -47,13 +49,21 @@ const Post: FC = () => {
         >
           <p
             style={{ marginRight: '20px' }}
-          >Тазалык</p>
+          >
+            Тазалык
+          </p>
           <p>Октябрьский район</p>
         </span>
         <span>
           #hashtag
         </span>
-        <p>repost</p>
+        <span>
+          <FontAwesomeIcon icon={faVolumeHigh} />
+          <span>
+            <FontAwesomeIcon icon={faThumbsDown} />
+            <FontAwesomeIcon icon={faHeart} />
+          </span>
+        </span>
         <div>
           <p>name</p>
           <p>lorem</p>
