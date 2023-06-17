@@ -22,8 +22,8 @@ const Footer = () => {
             hidden: { opacity: 0, x: 100 },
           }}
         >
-          <p>footer</p>
-          <Link to={"/register"}>footer</Link>
+          <p>Еще нет аккаунта?</p>
+          <Link to={"/register"}>Регистрация</Link>
         </motion.span>
       ) : (
         // в противном случае вот это

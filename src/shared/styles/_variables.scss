@@ -1,6 +1,9 @@
+$color_1: #7329c2;
+$color_2: #03d665;
+
 @mixin centering {
-    max-width: 1440px;
-    padding: 0 5%;
-    box-sizing: border-box;
-    margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 5%;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
