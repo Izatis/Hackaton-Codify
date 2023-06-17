@@ -17,7 +17,7 @@ export const Routing: FC = () => {
                 <Route index element={<HomePage />} />
                 <Route path='register' element={<RegisterForm />} />
                 <Route path='login' element={<LoginForm />} />
-                <Route path='client/:id' element={<ClientPage />} />
+                <Route path='client' element={<ClientPage />} />
             </Route>
         </Routes>
     )

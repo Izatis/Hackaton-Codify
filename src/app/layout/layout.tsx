@@ -9,7 +9,7 @@ const Layout: FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (pathname === "/" || pathname.slice(0, 7) === "/client") {
+    if (pathname === "/" || pathname === "/client") {
       setIsShow(true);
     } else {
       setIsShow(false);
@@ -18,9 +18,9 @@ const Layout: FC = () => {
 
   return (
     <>
-      {isShow && <Header />}
+      <Header />
       <Outlet />
-      {isShow && <Footer />}
+      <Footer />
     </>
   );
 };

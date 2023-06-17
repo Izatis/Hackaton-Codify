@@ -1,7 +1,7 @@
 @import "shared/styles/adaptive";
 @import "shared/styles/variables";
 .signUp {
-  max-width: 450px;
+  max-width: 600px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,6 +33,15 @@
       font-weight: 500;
       @include adaptive-value("font-size", 14, 10, 0);
       line-height: 130%;
+    }
+
+    .flex{
+      display: flex;
+      gap: 10px;
+      
+      div{
+        width: 100%;
+      }
     }
   }
 }

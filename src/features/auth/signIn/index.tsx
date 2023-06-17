@@ -3,13 +3,11 @@ import s from "./signIn.module.scss";
 
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { IUserAuthorization } from "./model/signIn";
+
 import MyButton from "shared/ui/animate-button";
 import ParticlesComponent from "shared/ui/Particles/Particles";
 
-interface IUserLogin {
-  username: string;
-  password: string;
-}
 
 const SignIn: FC = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -21,7 +19,7 @@ const SignIn: FC = () => {
     form.setFieldsValue({ ...form.getFieldsValue() });
   }, []);
 
-  const handleSubmit = (value: IUserLogin) => {
+  const handleSubmit = (values: IUserAuthorization) => {
     setIsButtonClicked(true);
     console.log("ok");
   };
