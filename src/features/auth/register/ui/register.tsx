@@ -1,22 +1,38 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { REGISTER_VALIDATION } from '../model/yup.schema';
 import { Avatar, Box, Paper, Stack, Typography } from '@mui/material';
+import { REGISTER_MODEL } from '../model/types';
+import { useRegisterMutation } from '../api/register-api';
+import { toast } from 'react-toastify';
 
 import CustomInput from 'shared/ui/custom-input';
-
-import s from './register.module.scss'
 import CustomButton from 'shared/ui/custom-button';
-import { Link } from 'react-router-dom';
+import s from './register.module.scss'
 
 const register = () => {
 
+    const [setRegister, { data }] = useRegisterMutation()
+
+    const handleSubmit = async (values: REGISTER_MODEL) => {
+        await setRegister(values)
+    }
+
+    useEffect(() => {
+        console.log(data);
+        if (data) {
+            toast.success('успешная регистрация')
+        }
+    }, [data])
+
     const INITIAL_FORM_STATE = {
-        login: '',
+        // login: '',
         email: '',
         password: '',
-        phone: '',
+        phone_number: '',
         region: '',
-        city: '',
+        city_district: '',
         address: '',
     }
 
@@ -24,7 +40,7 @@ const register = () => {
         <Formik
             initialValues={INITIAL_FORM_STATE}
             validationSchema={REGISTER_VALIDATION}
-            onSubmit={values => console.log(values)}
+            onSubmit={values => handleSubmit(values)}
         >
             <Form>
                 <Box className={s.root}>
@@ -45,11 +61,11 @@ const register = () => {
                             </Typography>
                         </Stack>
 
-                        <CustomInput
+                        {/* <CustomInput
                             label="Имя"
                             name='login '
                             sx={{ mb: 2, mr: 2 }}
-                        />
+                        /> */}
 
                         <CustomInput
                             label="Почта"
@@ -65,7 +81,7 @@ const register = () => {
                         <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
                             <CustomInput
                                 label="Номер тел"
-                                name="phone"
+                                name="phone_number"
                                 type='number'
                                 sx={{ mt: 2, mb: 2, mr: 2 }}
 
@@ -73,7 +89,7 @@ const register = () => {
                             <CustomInput
                                 label="Область"
                                 name="region"
-                                sx={{ mt: 2, mb: 2}}
+                                sx={{ mt: 2, mb: 2 }}
 
 
                             />
@@ -81,8 +97,8 @@ const register = () => {
                         <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
                             <CustomInput
                                 label="Район/город/село"
-                                name="city"
-                                sx={{ mr: 2}}
+                                name="city_district"
+                                sx={{ mr: 2 }}
                             />
                             <CustomInput
                                 label="Адрес проживания"

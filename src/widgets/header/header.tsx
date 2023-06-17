@@ -8,6 +8,7 @@ import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { Button } from "@mui/material";
 import MyButton from "shared/ui/animate-button";
+import { Link } from "react-router-dom";
 interface ILine {
   width: number;
   left: number;
@@ -152,21 +153,25 @@ const Header: FC = () => {
         </>
 
         <div className={s.header__buttons}>
-          <MyButton
-            background="#7329c2"
-            hoverBackground="#03d665"
-            variant="contained"
-          >
-            Войти
-          </MyButton>
+          <Link to='/register'>
+            <MyButton
+              background="#7329c2"
+              hoverBackground="#03d665"
+              variant="contained"
+            >
+              Войти
+            </MyButton>
+          </Link>
 
-          <MyButton
-            background="#7329c2"
-            hoverBackground="#03d665"
-            variant="contained"
-          >
-            Войти
-          </MyButton>
+          <Link to='/login'>
+            <MyButton
+              background="#7329c2"
+              hoverBackground="#03d665"
+              variant="contained"
+            >
+              Войти
+            </MyButton>
+          </Link>
           {/* <TranslateButton />
 
           <BurgerMenu

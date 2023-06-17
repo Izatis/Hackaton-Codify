@@ -4,14 +4,18 @@ import "./app/global.scss";
 // import i18next from 'i18next';
 import '../i18next'
 import { Routing } from "app/route/routing";
+import { Provider } from 'react-redux';
+import { store } from 'app/store/store';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback='loadingg...'>
-        <Routing />
-      </Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback='loadingg...'>
+          <Routing />
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
   );
 };
 
