@@ -1,0 +1,36 @@
+@import 'shared/styles/adaptive';
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.paper {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    @include adaptive-value('width', 500, 300, 0);
+    @include adaptive-value('padding-left', 42, 20, 0);
+    @include adaptive-value('padding-right', 42, 20, 0);
+
+    &__subcontent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__ava {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 10px;
+    }
+
+    &__supcontent {
+        text-align: center;
+    }
+}

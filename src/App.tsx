@@ -1,18 +1,15 @@
+import { Suspense } from 'react'
 import { BrowserRouter } from "react-router-dom";
 import "./app/global.scss";
 
-import Navbar from "widgets/app-bar/app-bar";
-import Footer from "widgets/footer/footer";
-import Hero from "pages/hero/hero";
-import MainLoad from "shared/ui/MainLoad/MainLoad";
+import { Routing } from "app/route/routing";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <MainLoad />
-      <Navbar />
-      <Hero />
-      <Footer />
+      <Suspense fallback='loadingg...'>
+        <Routing />
+      </Suspense>
     </BrowserRouter>
   );
 };
