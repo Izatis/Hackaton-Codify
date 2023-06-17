@@ -77,7 +77,6 @@ const Navbar: React.FC = () => {
               <Link to='/register'>
                 <Button
                   variant="contained"
-                  // color="secondary"
                   sx={{
                     mr: 2,
                     background: '#7329c2'
