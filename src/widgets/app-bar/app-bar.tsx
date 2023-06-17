@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
               <a className={s.link} href="#">lorem</a>
             </Box>
             <Box>
-              <Link to='/register'>
+              <Link to='/login'>
                 <Button
                   variant="contained"
                   sx={{
