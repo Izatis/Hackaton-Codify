@@ -50,7 +50,7 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
           GowHelp
         </Typography>
-        {/* <Pets sx={{ display: { xs: "block", sm: "none" } }} />
+        <Pets sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
         </Search>
@@ -73,7 +73,7 @@ const Navbar = () => {
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
           <Typography variant="body1">John</Typography>
-        </UserBox> */}
+        </UserBox>
         
       </StyledToolbar>
       <Menu
