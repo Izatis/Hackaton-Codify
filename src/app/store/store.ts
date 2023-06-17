@@ -1,12 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react'
-import { REGISTER_API_REDUCER_KEY, registerApi } from 'features/auth/register/api/register-api';
 import { rtkQueryErrorLogger } from 'shared/api/error-catching';
-import authReducer from 'features/auth/register/api/auth-slice'
 
 const reducers = {
-  auth: authReducer,
-  [REGISTER_API_REDUCER_KEY]: registerApi.reducer
+  // auth: authReducer,
+  // [REGISTER_API_RE DUCER_KEY]: registerApi.reducer
 };
 
 const combinedReducer = combineReducers<typeof reducers>(reducers);
@@ -17,7 +15,7 @@ export const store = configureStore({
     getDefaultMiddleware({
     }).concat([
       rtkQueryErrorLogger,
-      registerApi.middleware
+      // registerApi.middleware
     ]),
   devTools: true
 });

@@ -1,11 +1,10 @@
 import { FC, useRef } from "react";
 import s from "./style.module.scss";
 
+import Button, { ButtonProps } from "antd/lib/button";
 import cn from "classnames";
-// import { ButtonProps } from "@mui/material";
-import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
 
-interface IMyButtonProps extends LoadingButtonProps {
+interface IMyButtonProps extends ButtonProps {
   background?: string;
   hoverBackground?: string;
 }
@@ -15,8 +14,8 @@ const MyButton: FC<IMyButtonProps> = ({
   className,
   background,
   hoverBackground,
-  variant,
-  startIcon,
+  type,
+  icon,
   onClick,
   loading,
 }) => {
@@ -44,13 +43,13 @@ const MyButton: FC<IMyButtonProps> = ({
   };
 
   return (
-    <LoadingButton
+    <Button
       ref={buttonElement}
       className={cn(s.myButton, className)}
       style={{ background }}
-      variant={variant}
-      type="submit"
-      startIcon={startIcon}
+      type={type}
+      htmlType="submit"
+      icon={icon}
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -62,7 +61,7 @@ const MyButton: FC<IMyButtonProps> = ({
         style={{ background: hoverBackground }}
         ref={spanElement}
       ></span>
-    </LoadingButton>
+    </Button>
   );
 };
 
