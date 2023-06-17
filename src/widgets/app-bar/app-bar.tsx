@@ -16,7 +16,6 @@ import { Mail, Notifications, Pets } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 
 import s from './app-bar.module.scss'
-import { color } from "framer-motion";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -86,7 +85,7 @@ const Navbar: React.FC = () => {
                   Войти
                 </Button>
               </Link>
-              <Link to='/login'>
+              <Link to='/register'>
                 <Button
                   variant="contained"
                   sx={{
