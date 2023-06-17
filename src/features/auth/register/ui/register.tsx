@@ -1,4 +1,4 @@
-import { Formik, Form} from 'formik';
+import { Formik, Form } from 'formik';
 import { REGISTER_VALIDATION } from '../model/yup.schema';
 import { Avatar, Box, Paper, Stack, Typography } from '@mui/material';
 
@@ -11,9 +11,13 @@ import { Link } from 'react-router-dom';
 const register = () => {
 
     const INITIAL_FORM_STATE = {
-        userName: '',
+        login: '',
         email: '',
-        password: ''
+        password: '',
+        phone: '',
+        region: '',
+        city: '',
+        address: '',
     }
 
     return (
@@ -24,6 +28,9 @@ const register = () => {
         >
             <Form>
                 <Box className={s.root}>
+                    <Box>
+                        <Avatar />
+                    </Box>
                     <Paper
                         className={s.paper}
                         sx={{ pb: 2, pt: 2 }}
@@ -32,26 +39,50 @@ const register = () => {
                             <Avatar className={s.paper__ava} />
                             <Typography
                                 variant='h6'
-                                sx={{ mb: 2, mt: 2 }}
+                                sx={{ mb: 2 }}
                             >
                                 Регистрация аккаунта
                             </Typography>
                         </Stack>
 
                         <CustomInput
-                            label="Имя"
-                            name='userName'
-                        />
-                        <CustomInput
                             label="Почта"
-                            name="email"
-                            sx={{ mb: 2, mt: 2 }}
+                            name='email'
+                            sx={{ mb: 2, mr: 2 }}
                         />
                         <CustomInput
-                            type='password'
                             label="Пароль"
                             name="password"
+                            type='password'
                         />
+
+                        <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
+                            <CustomInput
+                                label="Номер тел"
+                                name="phone"
+                                type='number'
+                                sx={{ mt: 2, mb: 2, mr: 2 }}
+
+                            />
+                            <CustomInput
+                                label="Область"
+                                name="region"
+                                sx={{ mt: 2, mb: 2}}
+
+
+                            />
+                        </Stack>
+                        <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
+                            <CustomInput
+                                label="Район/город/село"
+                                name="city"
+                                sx={{ mr: 2}}
+                            />
+                            <CustomInput
+                                label="Адрес проживания"
+                                name="address"
+                            />
+                        </Stack>
                         <Stack className={s.paper__supcontent}>
                             <CustomButton
                                 sx={{ mb: 2, mt: 2 }}
@@ -62,9 +93,7 @@ const register = () => {
                                 variant='subtitle1'
                             >
                                 eсть аккаунт ?
-                                <Link to='/login'>
-                                    войти
-                                </Link>
+                                <Link to='/login'> войти </Link>
                             </Typography>
                         </Stack>
                     </Paper>
