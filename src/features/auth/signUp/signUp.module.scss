@@ -1,5 +1,5 @@
-@import "../../../styles/varibales.module.scss";
-
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
 .signUp {
   max-width: 450px;
   background-color: #ffffff;
@@ -11,7 +11,7 @@
 
   h2 {
     font-weight: 700;
-    @include adaptive-value("font-size", 40, 20);
+    @include adaptive-value("font-size", 40, 20, 0);
     line-height: 130%;
     color: #7329c2;
     text-align: center;
@@ -24,14 +24,14 @@
 
     .error {
       font-weight: 500;
-      @include adaptive-value("font-size", 14, 12);
+      @include adaptive-value("font-size", 14, 12, 0);
       line-height: 130%;
       color: #ff4d4f;
     }
 
     a {
       font-weight: 500;
-      @include adaptive-value("font-size", 14, 10);
+      @include adaptive-value("font-size", 14, 10, 0);
       line-height: 130%;
     }
   }

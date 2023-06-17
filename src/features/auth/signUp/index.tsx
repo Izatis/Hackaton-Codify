@@ -1,21 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import s from "./signUp.module.scss";
 
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Form, Input } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
-import en from "../../../locales/EN/translation.json";
-import ru from "../../../locales/RU/translation.json";
-import de from "../../../locales/DE/translation.json";
-import ch from "../../../locales/CH/translation.json";
-import fr from "../../../locales/FR/translation.json";
-import uk from "../../../locales/UK/translation.json";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { userRegistration } from "@/redux/reducers/auth.slice";
-
-import ParticlesComponent from "@/components/Particles/Particles";
-import MyButton from "../../../components/UI/Buttons/MyButton/MyButton";
+import MyButton from "shared/ui/animate-button";
+import ParticlesComponent from "shared/ui/Particles/Particles";
 
 interface IUserRegister {
   fullName: string;
@@ -27,38 +16,6 @@ interface IUserRegister {
 const SignUp: FC = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [passwordMismatchMessage, setPasswordMismatchMessage] = useState("");
-  const { push, locale } = useRouter();
-  const {isToken, isLoading, error } = useAppSelector((state) => state.auth);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const parsedToken = JSON.parse(localStorage.getItem("token") as string);
-    if (parsedToken) {
-      push("/setting/userSettings");
-    }
-  }, [isToken]);
-
-  let t: any;
-  switch (locale) {
-    case "en":
-      t = en;
-      break;
-    case "de":
-      t = de;
-      break;
-    case "ch":
-      t = ch;
-      break;
-    case "fr":
-      t = fr;
-      break;
-    case "uk":
-      t = uk;
-      break;
-    default:
-      t = ru;
-      break;
-  }
 
   // ---------------------------------------------------------------------------------------------------------------------------------
   // POST
@@ -69,18 +26,13 @@ const SignUp: FC = () => {
 
   const handleSubmit = (value: IUserRegister) => {
     setIsButtonClicked(true);
-    const { password, passwordСonfirmation } = value;
-    if (password !== passwordСonfirmation) {
-      setPasswordMismatchMessage(t.signUp[11]);
-    } else {
-      dispatch(userRegistration(value));
-    }
+    console.log("ok");
   };
 
   return (
     <section className={s.signUp}>
       <ParticlesComponent />
-      <h2>{t.signUp[0]}</h2>
+      <h2>Регистрация</h2>
       <Form form={form} name="sign-up-form" onFinish={handleSubmit}>
         <Form.Item
           className={s.signUp__deIndenting}
@@ -88,11 +40,11 @@ const SignUp: FC = () => {
           rules={[
             {
               required: true,
-              message: t.signUp[5],
+              message: "Пожалуйста, введите ваше имя",
             },
           ]}
         >
-          <Input prefix={<UserOutlined />} placeholder={t.signUp[1]} />
+          <Input prefix={<UserOutlined />} placeholder="Имя" />
         </Form.Item>
 
         <Form.Item
@@ -101,18 +53,19 @@ const SignUp: FC = () => {
           rules={[
             {
               required: true,
-              message: t.signUp[6],
+              message: "Пожалуйста, введите адрес электронной почты",
             },
             {
               type: isButtonClicked ? "email" : undefined,
-              message: t.signUp[7],
+              message:
+                "Пожалуйста, введите действительный адрес электронной почты",
             },
           ]}
         >
-          <Input prefix={<MailOutlined />} placeholder={t.signUp[2]} />
+          <Input prefix={<MailOutlined />} placeholder="Email" />
         </Form.Item>
 
-        <span className={s.error}>{error}</span>
+        {/* <span className={s.error}>{error}</span> */}
 
         <Form.Item
           className={s.signUp__deIndenting}
@@ -120,15 +73,15 @@ const SignUp: FC = () => {
           rules={[
             {
               required: true,
-              message: t.signUp[8],
+              message: "Пожалуйста введите ваш пароль",
             },
             {
               min: isButtonClicked ? 6 : undefined,
-              message: t.signUp[9],
+              message: "Пароль должен содержать не менее 6 знаков",
             },
           ]}
         >
-          <Input.Password prefix={<LockOutlined />} placeholder={t.signUp[3]} />
+          <Input.Password prefix={<LockOutlined />} placeholder="Пароль" />
         </Form.Item>
 
         <span className={s.error}>{passwordMismatchMessage}</span>
@@ -139,14 +92,17 @@ const SignUp: FC = () => {
           rules={[
             {
               required: true,
-              message: t.signUp[10],
+              message: "Пожалуйста, подтвердите свой пароль",
             },
             {
               message: passwordMismatchMessage,
             },
           ]}
         >
-          <Input.Password prefix={<LockOutlined />} placeholder={t.signUp[4]} />
+          <Input.Password
+            prefix={<LockOutlined />}
+            placeholder="Подтвердите пароль"
+          />
         </Form.Item>
 
         <Form.Item>
@@ -155,22 +111,10 @@ const SignUp: FC = () => {
             background="#7329c2"
             hoverBackground="#03d665"
             type="primary"
-            loading={isLoading}
+            // loading={isLoading}
           >
-            {t.signUp[12]}
+            Зарегистрироваться
           </MyButton>
-        </Form.Item>
-
-        <Form.Item>
-          <Link href="https://spring-boot-online-platform.herokuapp.com/oauth2/authorization/google">
-            {t.signUp[13]}
-          </Link>
-        </Form.Item>
-
-        <Form.Item>
-          <Link href="https://spring-boot-online-platform.herokuapp.com/oauth2/authorization/github">
-            {t.signUp[14]}
-          </Link>
         </Form.Item>
       </Form>
     </section>

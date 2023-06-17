@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
-import { Button } from "@mui/material";
 import MyButton from "shared/ui/animate-button";
 import { Link } from "react-router-dom";
 interface ILine {
@@ -157,7 +156,7 @@ const Header: FC = () => {
             <MyButton
               background="#7329c2"
               hoverBackground="#03d665"
-              variant="contained"
+              type="primary"
             >
               Войти
             </MyButton>
@@ -167,7 +166,7 @@ const Header: FC = () => {
             <MyButton
               background="#7329c2"
               hoverBackground="#03d665"
-              variant="contained"
+              type="primary"
             >
               Войти
             </MyButton>
