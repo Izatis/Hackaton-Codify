@@ -4,6 +4,11 @@
 .statistics {
   @include centering();
 
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .statisticsSlider {
     @include adaptive-value("height", 220, 150, 0);
 

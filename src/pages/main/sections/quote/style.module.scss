@@ -8,6 +8,10 @@
   gap: 50px;
   padding: 5% 20%;
   box-sizing: border-box;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
 
   .quote__avatar {
     max-width: 150px;

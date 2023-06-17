@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: space-between;
 
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .familiarization__text {
     max-width: 50%;
     display: flex;
@@ -19,7 +24,13 @@
       @include adaptive-value("font-size", 40, 20, 0);
       line-height: 130%;
       color: $color_3;
+
+      @media screen and (max-width: 1024px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
     }
+
 
     p {
       width: 80%;
@@ -35,6 +46,8 @@
 
     img {
       height: 100vh;
+      @include adaptive-value('width', 500, 200, 0);
+      object-fit: cover;
     }
   }
 }

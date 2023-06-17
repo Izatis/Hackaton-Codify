@@ -5,6 +5,12 @@
   @include centering();
   text-align: center;
 
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+
   p {
     font-weight: 500;
     @include adaptive-value("font-size", 20, 10, 0);
@@ -23,6 +29,11 @@
     display: flex;
     justify-content: space-between;
     margin: 5% 0;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      text-align: center;
+    }
 
     .about__item {
       display: flex;
