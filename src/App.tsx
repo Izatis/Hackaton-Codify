@@ -9,13 +9,13 @@ import { store } from 'app/store/store';
 
 const App = () => {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <BrowserRouter>
         <Suspense fallback='loadingg...'>
           <Routing />
         </Suspense>
       </BrowserRouter>
-    </Provider>
+    // </Provider>
   );
 };
 

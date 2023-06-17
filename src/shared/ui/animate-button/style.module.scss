@@ -11,9 +11,12 @@
   gap: 2px;
   border: none;
   transition: all 0.4s;
-  font-weight: 700;
-  @include adaptive-value("font-size", 15, 8, 0);
-  line-height: 130%;
+
+  span {
+    font-weight: 700;
+    @include adaptive-value("font-size", 15, 8, 0);
+    line-height: 130%;
+  }
 }
 
 .myButton__hover {
