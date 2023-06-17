@@ -1,0 +1,19 @@
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
+
+.information {
+  @include centering();
+  display: flex;
+
+  .information__text {
+
+
+  }
+
+  .information__image {
+    width: 100%;
+    img{
+      width: 50%;
+    }
+  }
+}

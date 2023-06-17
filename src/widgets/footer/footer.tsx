@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 
 const Footer: FC = () => {
   const [t, i18next] = useTranslation();
-console.log(t);
 
   return (
     <footer className={s.footer} id="contacts">

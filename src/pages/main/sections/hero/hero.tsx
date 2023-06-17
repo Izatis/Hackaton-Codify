@@ -1,39 +1,37 @@
 import s from "./hero.module.scss";
 
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const [t] = useTranslation();
+
   return (
     <section className={s.hero}>
       <div className={s.hero__title}>
-        <div className={s.hero__title_container}>
-          <motion.h1
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 2 }}
-            variants={{
-              visible: { opacity: 1, x: 0 },
-              hidden: { opacity: 0, x: 100 },
-            }}
-          >
-            Образовательная онлайн-платформа
-          </motion.h1>
-        </div>
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 2 }}
+          variants={{
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 100 },
+          }}
+        >
+          {t("hero.title")}
+        </motion.h1>
 
-        <div className={s.hero__subTitle_container}>
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 2 }}
-            variants={{
-              visible: { opacity: 1, x: 0 },
-              hidden: { opacity: 0, x: 100 },
-            }}
-          >
-            Курсы и видео-лекции по дизайну, копирайтингу, SMM, таргету и многим
-            другим направлениям
-          </motion.p>
-        </div>
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 2 }}
+          variants={{
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 100 },
+          }}
+        >
+          {t("hero.subTitle")}
+        </motion.p>
       </div>
 
       <div className={s.sky}>
