@@ -3,9 +3,7 @@ import React from 'react';
 const AddPost = () => {
   return (
     <div>
-      addpoost
+      addpoostsdas
     </div>
   );
 };
-
-export default AddPost;

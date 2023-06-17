@@ -1,12 +1,10 @@
-import Post from 'entities/post/ui/post';
-import AddPost from 'features/add-post/ui/add-post';
 import { FC } from 'react';
+import PostList from 'widgets/post-list/ui/post-list';
 
 const ClientPage: FC = () => {
     return (
         <div>
-            <AddPost />
-            <Post />
+            <PostList />
         </div>
     );
 };
