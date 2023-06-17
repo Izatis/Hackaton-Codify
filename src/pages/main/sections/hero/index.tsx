@@ -1,4 +1,4 @@
-import s from "./hero.module.scss";
+import s from "./style.module.scss";
 
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";

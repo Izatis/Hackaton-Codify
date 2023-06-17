@@ -2,18 +2,15 @@ import s from "./style.module.scss";
 
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import image from "shared/image/imageFirst.png";
+import image from "shared/image/imageSecond.png";
 
-const Information = () => {
+const FamiliarizationFirst = () => {
   const [t] = useTranslation();
 
   return (
-    <section className={s.information}>
-      <div className={s.information__image}>
-        <img src={image} alt="information image" />
-      </div>
+    <section className={s.familiarization}>
       <motion.div
-        className={s.information__text}
+        className={s.familiarization__text}
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 1 }}
@@ -22,11 +19,14 @@ const Information = () => {
           hidden: { opacity: 0, x: 100 },
         }}
       >
-        <h2>{t("information.0")}</h2>
-        <p>{t("information.1")}</p>
+        <h2>{t("familiarization-first.0")}</h2>
+        <p>{t("familiarization-first.1")}</p>
       </motion.div>
+      <div className={s.familiarization__image}>
+        <img src={image} alt="familiarization image" />
+      </div>
     </section>
   );
 };
 
-export default Information;
+export default FamiliarizationFirst;

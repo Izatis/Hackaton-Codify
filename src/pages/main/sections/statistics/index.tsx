@@ -1,11 +1,12 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import s from "./statistics.module.scss";
+import { FC, useEffect, useRef, useState } from "react";
+import s from "./style.module.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Statistics: FC = () => {
   const ref = useRef<HTMLTableSectionElement>(null);
@@ -61,6 +62,7 @@ const Statistics: FC = () => {
     }
   }, [inView]);
 
+  const [t] = useTranslation();
   return (
     <section className={s.statistics} ref={ref}>
       {inView && (
@@ -103,7 +105,7 @@ const Statistics: FC = () => {
               }}
             >
               <span className={s.__num} data-target={100}></span>
-              <p>Практических курсов</p>
+              <p>{t("statistics.0")}</p>
             </motion.div>
           </SwiperSlide>
 
@@ -119,7 +121,7 @@ const Statistics: FC = () => {
               }}
             >
               <span className={s.__num} data-target={155}></span>
-              <p>Пользователей</p>
+              <p>{t("statistics.1")}</p>
             </motion.div>
           </SwiperSlide>
 
@@ -135,7 +137,7 @@ const Statistics: FC = () => {
               }}
             >
               <span className={s.__num} data-target={123}></span>
-              <p>Зарегистрированных сегодня</p>
+              <p>{t("statistics.2")}</p>
             </motion.div>
           </SwiperSlide>
 
@@ -152,7 +154,7 @@ const Statistics: FC = () => {
               id="categories"
             >
               <span className={s.__num} data-target={50}></span>
-              <p>Отзывов</p>
+              <p>{t("statistics.3")}</p>
             </motion.div>
           </SwiperSlide>
         </Swiper>

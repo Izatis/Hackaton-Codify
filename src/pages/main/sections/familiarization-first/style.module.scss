@@ -1,20 +1,19 @@
 @import "shared/styles/adaptive";
 @import "shared/styles/variables";
 
-.information {
+.familiarization {
   @include centering();
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .information__text {
-    width: 60%;
+  .familiarization__text {
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     h2 {
-      width: 60%;
+      width: 80%;
       font-weight: 700;
       @include adaptive-value("font-size", 40, 20, 0);
       line-height: 130%;
@@ -29,7 +28,7 @@
     }
   }
 
-  .information__image {
+  .familiarization__image {
     img {
       height: 100vh;
     }

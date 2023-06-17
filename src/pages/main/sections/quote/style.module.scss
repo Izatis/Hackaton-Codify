@@ -1,0 +1,52 @@
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
+
+.quote {
+  @include centering();
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 5% 20%;
+  box-sizing: border-box;
+
+  .quote__avatar {
+    max-width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .quote__text {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: -20%;
+    }
+
+    p {
+      font-weight: 400;
+      @include adaptive-value("font-size", 22, 16, 0);
+      line-height: 130%;
+      color: $color_3;
+    }
+
+    .quote__author {
+      margin: 3% 0 0;
+
+      b {
+        font-weight: 700;
+        @include adaptive-value("font-size", 18, 14, 0);
+        line-height: 130%;
+        color: $color_3;
+      }
+
+      p {
+        font-weight: 700;
+        @include adaptive-value("font-size", 20, 15, 0);
+        line-height: 130%;
+        color: $color_1;
+      }
+    }
+  }
+}
