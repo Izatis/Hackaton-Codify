@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react'
+import signUpSlice from 'features/auth/signUp/api/signUp.slice';
 import { rtkQueryErrorLogger } from 'shared/api/error-catching';
 
 const reducers = {
-  // auth: authReducer,
+  register: signUpSlice,
   // [REGISTER_API_RE DUCER_KEY]: registerApi.reducer
 };
 

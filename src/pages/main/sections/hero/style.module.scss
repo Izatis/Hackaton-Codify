@@ -20,7 +20,7 @@
     h1 {
       max-width: 70%;
       font-weight: 700;
-      @include adaptive-value("font-size", 55, 22, 0);
+      @include adaptive-value("font-size", 45, 22, 0);
       line-height: 130%;
       color: $color_2;
       @include adaptive-value("letter-spacing", 1, 0.5, 0);
@@ -30,7 +30,7 @@
     p {
       max-width: 600px;
       font-weight: 700;
-      @include adaptive-value("font-size", 20, 10, 0);
+      @include adaptive-value("font-size", 18, 10, 0);
       line-height: 130%;
       color: #a7b0c2;
       @include adaptive-value("letter-spacing", 0.7, 0.1, 0);
