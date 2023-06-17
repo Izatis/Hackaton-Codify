@@ -152,7 +152,7 @@ const Header: FC = () => {
         </>
 
         <div className={s.header__buttons}>
-          <Link to='/register'>
+          <Link to="/register">
             <MyButton
               background="#7329c2"
               hoverBackground="#03d665"
@@ -162,13 +162,13 @@ const Header: FC = () => {
             </MyButton>
           </Link>
 
-          <Link to='/login'>
+          <Link to="/login">
             <MyButton
-              background="#7329c2"
-              hoverBackground="#03d665"
+          background="#7329c2"
+          hoverBackground="#03d665"
               type="primary"
             >
-              Войти
+              Регистрация
             </MyButton>
           </Link>
           {/* <TranslateButton />

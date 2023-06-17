@@ -1,0 +1,54 @@
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
+
+.about {
+  @include centering();
+  text-align: center;
+
+  p {
+    font-weight: 500;
+    @include adaptive-value("font-size", 20, 10, 0);
+    line-height: 130%;
+    color: rgba(18, 17, 39, 0.56);
+  }
+
+  h2 {
+    font-weight: 700;
+    @include adaptive-value("font-size", 45, 20, 0);
+    line-height: 130%;
+    color: $color_3;
+  }
+
+  .about__wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+
+    .about__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        @include adaptive-value("width", 160, 100, 0);
+        @include adaptive-value("height", 160, 100, 0);
+        object-fit: contain;
+        border-radius: 50%;
+      }
+
+      h2 {
+        font-weight: 700;
+        @include adaptive-value("font-size", 40, 20, 0);
+        line-height: 130%;
+        color: $color_3;
+      }
+
+      p {
+        font-weight: 500;
+        @include adaptive-value("font-size", 20, 10, 0);
+        line-height: 130%;
+        color: rgba(18, 17, 39, 0.56);
+      }
+    }
+  }
+}
