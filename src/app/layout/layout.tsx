@@ -11,7 +11,7 @@ const Layout: FC = () => {
     const { pathname } = useLocation()
 
     useEffect(() => {
-        if (pathname === '/') {
+        if (pathname === '/' || pathname.slice(0, 7) === '/client') {
             setIsShow(true)
         } else {
             setIsShow(false)

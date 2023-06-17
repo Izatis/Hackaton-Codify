@@ -63,7 +63,8 @@ const Navbar: React.FC = () => {
           }}>
           GowHelp
         </Typography>
-        {pathname == '/' ?
+        {pathname == '/' 
+          ?
           <>
             <Box>
               <a className={s.link} href="#">lorem</a>
