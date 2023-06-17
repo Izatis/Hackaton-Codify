@@ -46,6 +46,12 @@ const register = () => {
                         </Stack>
 
                         <CustomInput
+                            label="Имя"
+                            name='login '
+                            sx={{ mb: 2, mr: 2 }}
+                        />
+
+                        <CustomInput
                             label="Почта"
                             name='email'
                             sx={{ mb: 2, mr: 2 }}
