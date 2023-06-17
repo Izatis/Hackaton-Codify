@@ -2,7 +2,7 @@ import { FC, useRef } from "react";
 import s from "./style.module.scss";
 
 import cn from "classnames";
-import { ButtonProps } from "@mui/material";
+// import { ButtonProps } from "@mui/material";
 import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
 
 interface IMyButtonProps extends LoadingButtonProps {
