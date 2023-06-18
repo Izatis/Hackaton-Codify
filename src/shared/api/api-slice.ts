@@ -19,7 +19,7 @@ const axiosBaseQuery = (
 > =>
     async ({ url, method, data, params }) => {
         try {
-            
+            const parsedToken = JSON.parse(localStorage.getItem("token") as string);
             // const accessToken = store.getState()?.auth.token?.token;
             const config: AxiosRequestConfig = {
                 url: baseUrl + url,
@@ -27,7 +27,7 @@ const axiosBaseQuery = (
                 data,
                 params,
                 headers: {
-                    'Authorization': `Bearer ${'fsdf'}`,
+                    'Authorization': `Bearer ${parsedToken}`,
                     'Content-Type': 'application/json',
                 },
             }

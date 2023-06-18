@@ -22,7 +22,7 @@ const SignUp: FC = () => {
   const [passwordMismatchMessage, setPasswordMismatchMessage] = useState("");
 
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector((state) => state.register);
+  const { isLoading, error } = useAppSelector((state) => state.registration);
 
   // ---------------------------------------------------------------------------------------------------------------------------------
   // POST
@@ -183,7 +183,7 @@ const SignUp: FC = () => {
           </Form.Item>
         </div>
 
-        <Form.Item>
+        <Form.Item>      
           <MyButton
             className={s.signUp__deIndenting}
             background="#7329c2"

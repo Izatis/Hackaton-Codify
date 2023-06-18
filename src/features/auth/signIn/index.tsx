@@ -3,14 +3,23 @@ import s from "./signIn.module.scss";
 
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { userAuthorization } from "./api/signIn.slice";
+import { useAppDispatch, useAppSelector } from "shared/model/redux-hooks";
 import { IUserAuthorization } from "./model/signIn";
 
 import MyButton from "shared/ui/animate-button";
 import ParticlesComponent from "shared/ui/Particles/Particles";
 
-
 const SignIn: FC = () => {
+  // const [token, setToken] = useState("");
+  // useEffect(() => {
+  //   const parsedToken = JSON.parse(localStorage.getItem("token") as string);
+  //   setToken(parsedToken);
+  // }, []);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  const dispatch = useAppDispatch();
+  const { isLoading, error } = useAppSelector((state) => state.authorization);
 
   // ---------------------------------------------------------------------------------------------------------------------------------
   // POST
@@ -21,7 +30,7 @@ const SignIn: FC = () => {
 
   const handleSubmit = (values: IUserAuthorization) => {
     setIsButtonClicked(true);
-    console.log("ok");
+    dispatch(userAuthorization(values));
   };
 
   return (
@@ -31,7 +40,7 @@ const SignIn: FC = () => {
       <Form form={form} name="sign-in-form" onFinish={handleSubmit}>
         <Form.Item
           className={s.signIn__deIndenting}
-          name="username"
+          name="email"
           rules={[
             {
               required: true,
@@ -46,6 +55,8 @@ const SignIn: FC = () => {
         >
           <Input prefix={<MailOutlined />} placeholder="Email" />
         </Form.Item>
+
+        <span className={s.error}>{error}</span>
 
         <Form.Item
           className={s.signIn__deIndenting}
@@ -66,7 +77,7 @@ const SignIn: FC = () => {
             background="#03d665"
             hoverBackground="#7329c2"
             type="primary"
-            // loading={isLoading}
+            loading={isLoading}
           >
             Войти
           </MyButton>

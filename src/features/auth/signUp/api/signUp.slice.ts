@@ -6,22 +6,12 @@ import { API_URL } from "shared/config/env-config";
 // Отправляем post запрос для регистрации
 export const userRegistration = createAsyncThunk<void, IUserRegistration>(
   "user/registration",
-  async (
-    { email, password, phone_number, region, city_district, address },
-    thunkApi
-  ) => {
+  async (values, thunkApi) => {
     try {
-      const { data } = await axios.post(API_URL + "v1/users/register/", {
-        email,
-        password,
-        phone_number,
-        region,
-        city_district,
-        address,
-      });
+      const { data } = await axios.post(API_URL + "v1/users/register/", values);
 
       // Сохраняем токен пользователя
-      localStorage.setItem("token", JSON.stringify(data.tokens.refresh));
+      localStorage.setItem("token", JSON.stringify(data.tokens.access));
 
       return data.token;
     } catch ({ response }: any) {
@@ -36,8 +26,8 @@ const initialState: IRegisterState = {
   error: "",
 };
 
-const authSlice = createSlice({
-  name: "register",
+const registrationSlice = createSlice({
+  name: "registration",
   initialState,
   reducers: {
     reset: (state) => {
@@ -64,5 +54,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { reset } = authSlice.actions;
-export default authSlice.reducer;
+export const { reset } = registrationSlice.actions;
+export default registrationSlice.reducer;

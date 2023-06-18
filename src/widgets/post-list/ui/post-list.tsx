@@ -1,12 +1,42 @@
-import Post from 'entities/post/ui/post';
-import React from 'react';
+import { useGetPostsQuery } from "entities/post/api/post-api";
+
+import Post from "entities/post/ui/post";
+import { useEffect, useState } from "react";
+
+export interface IPost {
+  author: string;
+  text: string;
+  title: string;
+  file: string;
+  address: string;
+  custom_user: string;
+  comments: any;
+  created_at: string;
+}
+
 
 const PostList = () => {
-    return (
-        <div style={{display: 'flex', alignItems: 'center', 'justifyContent': 'center', marginTop: '100px'}}>
-            <Post />
-        </div>
-    );
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    const parsedToken = JSON.parse(localStorage.getItem("token") as string);
+    setToken(parsedToken);
+  }, []);
+
+  const { data: posts = [] } = useGetPostsQuery({ token });
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "100px",
+      }}
+    >
+      {posts.map((post: IPost) => {
+        return <Post post={post} />;
+      })}
+    </div>
+  );
 };
 
 export default PostList;

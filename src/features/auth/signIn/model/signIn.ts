@@ -1,5 +1,5 @@
 export interface IUserAuthorization {
-  username: string;
+  email: string;
   password: string;
 }
 

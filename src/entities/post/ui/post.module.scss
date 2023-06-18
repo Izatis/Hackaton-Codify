@@ -1,71 +1,73 @@
-@import 'shared/styles/adaptive';
-@import 'shared/styles/variables';
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
 
 .card {
-    @include adaptive-value('width', 920, 300, 0);
-    // background: $color_3;
-    box-shadow: 0px 20px 50px rgba(18, 17, 39, 0.08);
-    border-radius: 12px;
+  @include adaptive-value("width", 920, 300, 0);
+  // background: $color_3;
+  box-shadow: 0px 20px 50px rgba(18, 17, 39, 0.08);
+  border-radius: 12px;
 
-    &__img {
-        @include adaptive-value('height', 650, 400, 0);
-        object-fit: cover;
+  &__img {
+    @include adaptive-value("height", 650, 400, 0);
+    object-fit: cover;
+  }
+
+  &__supcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 20px;
+
+    &_rating {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
     }
 
-    &__supcontent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px 20px;
-
-        &_rating {
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 18px;
-        }
-
-        &_name {
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 18px;
-
-        }
-
-        &_up {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        &_bottom {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-        }
-
-        &_title {
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 24px;
-        }
-
-        &_status {
-            background: #DEF7EC;
-            padding: 2px 8px;
-            border-radius: 8px;
-        }
+    &_name {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    &__img {
-        width: 100%;
-        @include adaptive-value('height', 600, 420, 0);
-        object-fit: cover;
-        object-position: center;
+    &_up {
+      display: flex;
+      justify-content: space-between;
     }
 
-    &__subcontent {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 10px 20px;
+    &_bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
     }
+
+    &_title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &_status {
+      background: #def7ec;
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    @include adaptive-value("height", 600, 420, 0);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__subcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 20px;
+  }
 }
