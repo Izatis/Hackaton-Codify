@@ -91,7 +91,7 @@ const Header: FC = () => {
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
-      {pathname === '/'
+      {pathname === '/'|| pathname === '/login' || pathname === '/register'
         ?
         <nav className={s.header__nav}>
           <>
