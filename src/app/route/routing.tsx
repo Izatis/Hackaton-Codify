@@ -8,6 +8,7 @@ const HomePage = lazy(() => import('../../pages/main/ui/index'))
 const LoginForm = lazy(() => import('../../features/auth/signIn'))
 const ClientPage = lazy(() => import('../../pages/client/ui/client-page'))
 const AddPost = lazy(() => import('../../features/add-post/ui/add-post'))
+const Profile = lazy(() => import('../../features/profile/ui/profile'))
 
 export const Routing: FC = () => {
 
@@ -20,6 +21,7 @@ export const Routing: FC = () => {
                 <Route path='login' element={<LoginForm />} />
                 <Route path='client' element={<ClientPage />} />
                 <Route path='add-post' element={<AddPost />} />
+                <Route path='profile' element={<Profile />} />
             </Route>
         </Routes>
     )

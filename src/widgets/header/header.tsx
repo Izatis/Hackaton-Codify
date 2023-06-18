@@ -91,7 +91,7 @@ const Header: FC = () => {
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
-      {pathname === '/'|| pathname === '/login' || pathname === '/register'
+      {pathname === '/' || pathname === '/login' || pathname === '/register'
         ?
         <nav className={s.header__nav}>
           <>
@@ -195,6 +195,13 @@ const Header: FC = () => {
               />
             </a>
             <ul style={{ display: 'flex', columnGap: '20px' }}>
+
+              <li>
+                <Link to='profile'>
+                  Мой профиль
+                </Link>
+              </li>
+              
               <li>
                 <Link to='#'>
                   Общая лента
