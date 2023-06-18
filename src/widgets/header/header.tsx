@@ -5,7 +5,12 @@ import cn from "classnames";
 import WechatOutlind from "@ant-design/icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+<<<<<<< HEAD
 import { useLocation } from "react-router";
+=======
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { useLocation, useNavigate } from "react-router";
+>>>>>>> 1ad7b00de779cee7490ce8a360f39360ddaaeb2f
 import { useTranslation } from "react-i18next";
 import MyButton from "shared/ui/animate-button";
 import { Link } from "react-router-dom";
@@ -90,6 +95,13 @@ const Header: FC = () => {
     setSideBarActive(!sideBarActive);
   };
   const [t, i18next] = useTranslation();
+
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    navigate('/')
+    localStorage.clear()
+  }
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
@@ -193,7 +205,13 @@ const Header: FC = () => {
               </li>
 
               <li>
+<<<<<<< HEAD
                 <Link to="all-post">Общая лента</Link>
+=======
+                <Link to='post-list'>
+                  Общая лента
+                </Link>
+>>>>>>> 1ad7b00de779cee7490ce8a360f39360ddaaeb2f
               </li>
 
               <li>
@@ -218,6 +236,17 @@ const Header: FC = () => {
                   Cоздать пост
                 </MyButton>
               </Link>
+<<<<<<< HEAD
+=======
+              <MyButton
+                onClick={logOut}
+                background="#7329c2"
+                hoverBackground="#03d665"
+                type="primary"
+              >
+                Выйти
+              </MyButton>
+>>>>>>> 1ad7b00de779cee7490ce8a360f39360ddaaeb2f
             </div>
           </>
         </nav>

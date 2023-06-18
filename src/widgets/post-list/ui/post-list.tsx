@@ -35,6 +35,17 @@ const PostList = () => {
 
     return (
         <div style={{ marginTop: "100px" }}>
+            <Select
+                defaultValue="Сортировка по"
+                style={{ width: 150 , marginLeft: '320px', marginBottom: '20px'}}
+                onChange={handleChange}
+                options={[
+                    { value: 'По лайкам', label: 'По лайкам' },
+                    { value: 'По дате', label: 'По дате' },
+                    { value: 'По комментам', label: 'По комментам' },
+                    { value: 'disabled', label: 'Disabled', disabled: true },
+                ]}
+            />
             <div
                 style={{
                     display: "flex",
@@ -44,17 +55,6 @@ const PostList = () => {
                     gap: '30px'
                 }}
             >
-                <Select
-                    defaultValue="Сортировка по"
-                    style={{ width: 120 }}
-                    onChange={handleChange}
-                    options={[
-                        { value: 'По лайкам', label: 'По лайкам' },
-                        { value: 'По дате', label: 'По дате' },
-                        { value: 'По комментам', label: 'По комментам' },
-                        { value: 'disabled', label: 'Disabled', disabled: true },
-                    ]}
-                />
                 {query === '' &&
                     posts.map((post: IPost) => (
                         <Post key={post.title} post={post} />
