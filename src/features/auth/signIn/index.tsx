@@ -33,11 +33,10 @@ const SignIn: FC = () => {
   };
 
   useEffect(() => {
-    const parsedToken = JSON.parse(localStorage.getItem("token") as string);
-    if (parsedToken) {
-      navigate("/login");
+    if (isToken) {
+      navigate("/profile");
     }
-  }, [isToken]);
+  }, [isLoading]);
 
   return (
     <section className={s.signIn}>

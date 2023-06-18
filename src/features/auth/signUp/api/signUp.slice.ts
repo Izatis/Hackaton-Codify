@@ -9,9 +9,17 @@ export const userRegistration = createAsyncThunk<void, IUserRegistration>(
   async (values, thunkApi) => {
     try {
       const { data } = await axios.post(API_URL + "v1/users/register/", values);
+      console.log(data);
 
       // Сохраняем токен пользователя
       localStorage.setItem("token", JSON.stringify(data.tokens.access));
+      localStorage.setItem("email", JSON.stringify(data.email));
+      localStorage.setItem("id", JSON.stringify(Date.now()));
+      localStorage.setItem("city_distric", JSON.stringify(data.city_district));
+      localStorage.setItem("phone_number", JSON.stringify(data.phone_number));
+      localStorage.setItem("address", JSON.stringify(data.address));
+      localStorage.setItem("region", JSON.stringify(data.region));
+
       return data.token;
     } catch ({ response }: any) {
       console.log(response.data.email[0]);
