@@ -9,7 +9,7 @@ export interface IUserRegistration {
 }
 
 export interface IRegisterState {
-  token: string;
   isLoading: boolean;
+  isToken: string;
   error: string;
 }

@@ -9,17 +9,16 @@ import { IUserAuthorization } from "./model/signIn";
 
 import MyButton from "shared/ui/animate-button";
 import ParticlesComponent from "shared/ui/Particles/Particles";
+import { useNavigate } from "react-router";
 
 const SignIn: FC = () => {
-  // const [token, setToken] = useState("");
-  // useEffect(() => {
-  //   const parsedToken = JSON.parse(localStorage.getItem("token") as string);
-  //   setToken(parsedToken);
-  // }, []);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector((state) => state.authorization);
+  const { isLoading, isToken, error } = useAppSelector(
+    (state) => state.authorization
+  );
+  const navigate = useNavigate();
 
   // ---------------------------------------------------------------------------------------------------------------------------------
   // POST
@@ -32,6 +31,13 @@ const SignIn: FC = () => {
     setIsButtonClicked(true);
     dispatch(userAuthorization(values));
   };
+
+  useEffect(() => {
+    const parsedToken = JSON.parse(localStorage.getItem("token") as string);
+    if (parsedToken) {
+      navigate("/login");
+    }
+  }, [isToken]);
 
   return (
     <section className={s.signIn}>

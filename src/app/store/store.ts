@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
-import { rtkQueryErrorLogger } from "shared/api/error-catching";
 
 import signUpSlice from "features/auth/signUp/api/signUp.slice";
 import signInSlice from "features/auth/signIn/api/signIn.slice";
@@ -17,7 +16,7 @@ const combinedReducer = combineReducers<typeof reducers>(reducers);
 export const store = configureStore({
   reducer: combinedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({}).concat([ post.middleware]),
+    getDefaultMiddleware({}).concat([post.middleware]),
   devTools: true,
 });
 

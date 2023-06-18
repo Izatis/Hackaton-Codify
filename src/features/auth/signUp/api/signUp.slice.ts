@@ -15,13 +15,15 @@ export const userRegistration = createAsyncThunk<void, IUserRegistration>(
 
       return data.token;
     } catch ({ response }: any) {
-      return thunkApi.rejectWithValue(response.data.message);
+      console.log(response.data.email[0]);
+
+      return thunkApi.rejectWithValue(response.data.email[0]);
     }
   }
 );
 
 const initialState: IRegisterState = {
-  token: "",
+  isToken: "",
   isLoading: false,
   error: "",
 };
@@ -42,7 +44,7 @@ const registrationSlice = createSlice({
     });
 
     builder.addCase(userRegistration.fulfilled, (state: any, action) => {
-      state.token = action.payload;
+      state.isToken = action.payload;
       state.isLoading = false;
       state.error = "";
     });

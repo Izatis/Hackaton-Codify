@@ -1,14 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IUserAuthorization, IAuthorizationState } from "../model/signIn";
+import {  IAuthorizationState } from "../model/signIn";
 import { API_URL } from "shared/config/env-config";
 
 // Отправляем post запрос для авторизации
 export const userAuthorization = createAsyncThunk<void, any>(
   "user/authorization",
-  async (values, thunkApi) => {
-    console.log(values);
-    
+  async (values, thunkApi) => {    
     try {
       const parsedToken = JSON.parse(localStorage.getItem("token") as string);
 
@@ -27,7 +25,7 @@ export const userAuthorization = createAsyncThunk<void, any>(
 );
 
 const initialState: IAuthorizationState = {
-  token: "",
+  isToken: "",
   isLoading: false,
   error: "",
 };
@@ -49,7 +47,7 @@ const authorizationSlice = createSlice({
     });
 
     builder.addCase(userAuthorization.fulfilled, (state: any, action: any) => {
-      state.token = action.payload;
+      state.isToken = action.payload;
       state.isLoading = false;
       state.error = "";
     });

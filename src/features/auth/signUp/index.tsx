@@ -16,14 +16,18 @@ import { userRegistration } from "./api/signUp.slice";
 import { IUserRegistration } from "./model/signUp";
 
 import MyButton from "shared/ui/animate-button";
+import { useNavigate } from "react-router";
 
 const SignUp: FC = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [passwordMismatchMessage, setPasswordMismatchMessage] = useState("");
 
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector((state) => state.registration);
+  const { isLoading, isToken, error } = useAppSelector(
+    (state) => state.registration
+  );
 
+  const navigate = useNavigate();
   // ---------------------------------------------------------------------------------------------------------------------------------
   // POST
   const [form] = Form.useForm();
@@ -40,6 +44,13 @@ const SignUp: FC = () => {
       dispatch(userRegistration(values));
     }
   };
+
+  useEffect(() => {
+    const parsedToken = JSON.parse(localStorage.getItem("token") as string);
+    if (parsedToken) {
+      navigate("/login");
+    }
+  }, [isToken]);
 
   return (
     <section className={s.signUp}>
@@ -183,7 +194,7 @@ const SignUp: FC = () => {
           </Form.Item>
         </div>
 
-        <Form.Item>      
+        <Form.Item>
           <MyButton
             className={s.signUp__deIndenting}
             background="#7329c2"
