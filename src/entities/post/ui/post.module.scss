@@ -3,7 +3,7 @@
 
 .card {
   @include adaptive-value("width", 920, 300, 0);
-  // background: $color_3;
+  // background: $color_3;  
   box-shadow: 0px 20px 50px rgba(18, 17, 39, 0.08);
   border-radius: 12px;
 

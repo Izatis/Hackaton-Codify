@@ -193,6 +193,10 @@ const Header: FC = () => {
               </li>
 
               <li>
+                <Link to="all-post">Общая лента</Link>
+              </li>
+
+              <li>
                 <Link to="#">Общая лента</Link>
               </li>
 

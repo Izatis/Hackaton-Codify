@@ -27,7 +27,7 @@ const axiosBaseQuery = (
                 data,
                 params,
                 headers: {
-                    'Authorization': `Bearer ${parsedToken}`,
+                    Authorization: `Bearer ${parsedToken}`,
                     'Content-Type': 'application/json',
                 },
             }
