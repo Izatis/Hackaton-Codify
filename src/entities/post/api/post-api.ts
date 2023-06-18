@@ -8,34 +8,95 @@ export const post = createApi({
   endpoints: (build) => ({
     getPosts: build.query({
       query: ({ token }) => ({
-        url: `v1/walls/post/all`,
+        url: "v1/walls/post/all",
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       }),
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }: any) => ({ type: "Carts", id })),
-              { type: "Carts", id: "LIST" },
-            ]
+            ...result.map(({ id }: any) => ({ type: "Carts", id })),
+            { type: "Carts", id: "LIST" },
+          ]
           : [{ type: "Carts", id: "LIST" }],
+      transformResponse: (resp: any) => {
+        return resp.map((item: any) => ({
+          ...item,
+          created_at: new Date(item.created_at).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }) + " / " + new Date(item.created_at).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+          }),
+        }));
+      },
     }),
-    // addProduct: build.mutation({
-    //     query: (body) => ({
-    //         url: 'goods',
-    //         method: 'POST',
-    //         body,
-    //     }),
-    //     invalidatesTags: [{type: 'Carts', id: 'LIST'}]
-    // }),
-    // deleteProduct: build.mutation({
-    //     query: (id) => ({
-    //         url: `goods/${id}`,
-    //         method: 'DELETE',
-    //     }),
-    //     invalidatesTags: [{type: 'Carts', id: 'LIST'}]
-    // })
+
+    getPostByDate: build.query({
+      query: ({ token }) => ({
+        url: "v1/walls/post/all",
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      }),
+      providesTags: (result) =>
+        result
+          ? [
+            ...result.map(({ id }: any) => ({ type: "Carts", id })),
+            { type: "Carts", id: "LIST" },
+          ]
+          : [{ type: "Carts", id: "LIST" }],
+
+      transformResponse: (resp: any) => {
+        const transformedResponse = resp.map((item: any) => ({
+          ...item,
+          created_at: new Date(item.created_at).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }) + " / " + new Date(item.created_at).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+          }),
+        }));
+
+        return transformedResponse.sort((a: any, b: any) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+      },
+    }),
+
+
+    getPostByComments: build.query({
+      query: ({ token }) => ({
+        url: "v1/feeds/",
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      }),
+      providesTags: (result) =>
+        result
+          ? [
+            ...result.map(({ id }: any) => ({ type: "Carts", id })),
+            { type: "Carts", id: "LIST" },
+          ]
+          : [{ type: "Carts", id: "LIST" }],
+      transformResponse: (resp: any) => {
+        return resp.map((item: any) => ({
+          ...item,
+          created_at: new Date(item.created_at).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }) + " / " + new Date(item.created_at).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+          }),
+        }));
+      },
+    }),
+
   }),
 });
 
-export const { useGetPostsQuery } = post;
+export const { useGetPostsQuery, useGetPostByDateQuery, useGetPostByCommentsQuery } = post;

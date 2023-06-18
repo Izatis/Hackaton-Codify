@@ -201,9 +201,9 @@ const Header: FC = () => {
                   Мой профиль
                 </Link>
               </li>
-              
+
               <li>
-                <Link to='#'>
+                <Link to='all-post'>
                   Общая лента
                 </Link>
               </li>

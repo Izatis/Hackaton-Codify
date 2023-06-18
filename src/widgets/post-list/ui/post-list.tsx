@@ -1,9 +1,11 @@
-import { useGetPostsQuery } from "entities/post/api/post-api";
+import { Select } from "antd";
+import { useGetPostByCommentsQuery, useGetPostByDateQuery, useGetPostsQuery } from "entities/post/api/post-api";
 
 import Post from "entities/post/ui/post";
 import { useEffect, useState } from "react";
 
 export interface IPost {
+    email: string;
     author: string;
     text: string;
     title: string;
@@ -14,7 +16,6 @@ export interface IPost {
     created_at: string;
 }
 
-
 const PostList = () => {
     const [token, setToken] = useState("");
     useEffect(() => {
@@ -23,21 +24,55 @@ const PostList = () => {
     }, []);
 
     const { data: posts = [] } = useGetPostsQuery({ token });
-    console.log(posts);
+    const { data: datePost = [] } = useGetPostByDateQuery({ token });
+    const { data: commentData = [] } = useGetPostByCommentsQuery({ token })
+
+    const [query, setQuery] = useState('');
+
+    const handleChange = (value: string) => {
+        setQuery(value);
+    };
+
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: 'column',
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "100px",
-                gap: '30px'
-            }}
-        >
-            {posts.map((post: IPost) => {
-                return <Post post={post} />;
-            })}
+        <div style={{ marginTop: "100px" }}>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: 'column',
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: '30px'
+                }}
+            >
+                <Select
+                    defaultValue="Сортировка по"
+                    style={{ width: 120 }}
+                    onChange={handleChange}
+                    options={[
+                        { value: 'По лайкам', label: 'По лайкам' },
+                        { value: 'По дате', label: 'По дате' },
+                        { value: 'По комментам', label: 'По комментам' },
+                        { value: 'disabled', label: 'Disabled', disabled: true },
+                    ]}
+                />
+                {query === '' &&
+                    posts.map((post: IPost) => (
+                        <Post key={post.title} post={post} />
+                    ))
+                }
+
+                {query === 'По дате' &&
+                    datePost.map((post: IPost) => (
+                        <Post key={post.created_at} post={post} />
+                    ))
+                }
+
+                {query === 'По комментам' &&
+                    commentData.map((post: IPost) => (
+                        <Post key={post.address} post={post} />
+                    ))
+                }
+            </div>
         </div>
     );
 };
