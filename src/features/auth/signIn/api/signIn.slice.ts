@@ -1,23 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {  IAuthorizationState } from "../model/signIn";
+import { IAuthorizationState } from "../model/signIn";
 import { API_URL } from "shared/config/env-config";
 
 // Отправляем post запрос для авторизации
 export const userAuthorization = createAsyncThunk<void, any>(
   "user/authorization",
-  async (values, thunkApi) => {    
+  async (values, thunkApi) => {
     try {
       const parsedToken = JSON.parse(localStorage.getItem("token") as string);
 
-      const { data } = await axios.post(
-        API_URL + "v1/users/login/",
-        values,
-        {
-          headers: { Authorization: `Bearer ${parsedToken}` },
-        },
-      );
-      return data.token;
+      const { data } = await axios.post(API_URL + "v1/users/login/", values, {
+        headers: { Authorization: `Bearer ${parsedToken}` },
+      });
+      data.tokens.access;
     } catch ({ response }: any) {
       return thunkApi.rejectWithValue(response.data.message);
     }

@@ -23,6 +23,7 @@ const PostList = () => {
     }, []);
 
     const { data: posts = [] } = useGetPostsQuery({ token });
+    console.log(posts);
     return (
         <div
             style={{

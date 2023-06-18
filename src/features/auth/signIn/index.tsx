@@ -33,10 +33,10 @@ const SignIn: FC = () => {
   };
 
   useEffect(() => {
-    if (isToken) {
+    if (isToken !== "") {
       navigate("/profile");
     }
-  }, [isLoading]);
+  }, [isToken]);
 
   return (
     <section className={s.signIn}>

@@ -20,7 +20,7 @@ export const userRegistration = createAsyncThunk<void, IUserRegistration>(
       localStorage.setItem("address", JSON.stringify(data.address));
       localStorage.setItem("region", JSON.stringify(data.region));
 
-      return data.token;
+      return data.tokens.access;
     } catch ({ response }: any) {
       console.log(response.data.email[0]);
 
