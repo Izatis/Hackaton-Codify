@@ -24,6 +24,7 @@
     margin: 0 auto;
     transition: all 0.3s;
 
+
     .header__logo {
       @include adaptive-value("width", 50, 30, 0);
       @include adaptive-value("font-size", 50, 30, 0);

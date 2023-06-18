@@ -91,87 +91,89 @@ const Header: FC = () => {
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
-      <nav className={s.header__nav}>
-        <>
-          <a href="#">
-            <FontAwesomeIcon
-              icon={faGraduationCap}
-              className={s.header__logo}
-            />
-          </a>
+      {pathname === '/'
+        ?
+        <nav className={s.header__nav}>
+          <>
+            <a href="#">
+              <FontAwesomeIcon
+                icon={faGraduationCap}
+                className={s.header__logo}
+              />
+            </a>
 
-          <ul className={s.header__list}>
-            <li ref={blockRefFirst}>
-              <a
-                href="#"
-                style={
-                  navColor === 1 ? { color: "#03d665" } : { color: "#322f55" }
-                }
-              >
-                {t("header.0")}
-              </a>
-            </li>
-            <li ref={blockRefSecond}>
-              <a
-                href="#categories"
-                style={
-                  navColor === 2 ? { color: "#03d665" } : { color: "#322f55" }
-                }
-              >
-                {t("header.1")}
-              </a>
-            </li>
-            <li ref={blockRefThree}>
-              <a
-                href="#courses"
-                style={
-                  navColor === 3 ? { color: "#03d665" } : { color: "#322f55" }
-                }
-              >
-                {t("header.2")}
-              </a>
-            </li>
-            <li ref={blockRefFour}>
-              <a
-                href="#contacts"
-                style={
-                  navColor === 4 ? { color: "#03d665" } : { color: "#322f55" }
-                }
-              >
-                {t("header.3")}
-              </a>
-            </li>
-            <span
-              className={s.animateLine}
-              style={{
-                left: navBarPosition.left,
-                width: navBarPosition.width,
-              }}
-            ></span>
-          </ul>
-        </>
+            <ul className={s.header__list}>
+              <li ref={blockRefFirst}>
+                <a
+                  href="#"
+                  style={
+                    navColor === 1 ? { color: "#03d665" } : { color: "#322f55" }
+                  }
+                >
+                  {t("header.0")}
+                </a>
+              </li>
+              <li ref={blockRefSecond}>
+                <a
+                  href="#categories"
+                  style={
+                    navColor === 2 ? { color: "#03d665" } : { color: "#322f55" }
+                  }
+                >
+                  {t("header.1")}
+                </a>
+              </li>
+              <li ref={blockRefThree}>
+                <a
+                  href="#courses"
+                  style={
+                    navColor === 3 ? { color: "#03d665" } : { color: "#322f55" }
+                  }
+                >
+                  {t("header.2")}
+                </a>
+              </li>
+              <li ref={blockRefFour}>
+                <a
+                  href="#contacts"
+                  style={
+                    navColor === 4 ? { color: "#03d665" } : { color: "#322f55" }
+                  }
+                >
+                  {t("header.3")}
+                </a>
+              </li>
+              <span
+                className={s.animateLine}
+                style={{
+                  left: navBarPosition.left,
+                  width: navBarPosition.width,
+                }}
+              ></span>
+            </ul>
+          </>
 
-        <div className={s.header__buttons}>
-          <Link to="/login">
-            <MyButton
-              background="#7329c2"
-              hoverBackground="#03d665"
-              type="primary"
-            >
-              Войти
-            </MyButton>
-          </Link>
+          <div className={s.header__buttons}>
+            <Link to="/login">
+              <MyButton
+                background="#7329c2"
+                hoverBackground="#03d665"
+                type="primary"
+              >
+                Войти
+              </MyButton>
+            </Link>
 
-          <Link to="/register">
-            <MyButton
-              background="#7329c2"
-              hoverBackground="#03d665"
-              type="primary"
-            >
-              Регистрация
-            </MyButton>
-          </Link>
-          {/* <TranslateButton />
+            <Link to="/register">
+              <MyButton
+                background="#7329c2"
+                hoverBackground="#03d665"
+                type="primary"
+              >
+                Регистрация
+              </MyButton>
+            </Link>
+            {/* <TranslateButton />
 
           <BurgerMenu
             isHeaderActive={isHeaderActive}
@@ -179,8 +181,61 @@ const Header: FC = () => {
             sideBarActive={sideBarActive}
             setSideBarActive={setSideBarActive}
           /> */}
-        </div>
-      </nav>
+          </div>
+        </nav>
+
+        :
+
+        <nav className={s.header__nav}>
+          <>
+            <a href="#">
+              <FontAwesomeIcon
+                icon={faGraduationCap}
+                className={s.header__logo}
+              />
+            </a>
+            <ul style={{ display: 'flex', columnGap: '20px' }}>
+              <li>
+                <Link to='#'>
+                  Общая лента
+                </Link>
+              </li>
+
+              <li>
+                <Link to='#'>
+                  Мой район
+                </Link>
+              </li>
+
+              <li>
+                <Link to='#'>
+                  Мои подписки
+                </Link>
+              </li>
+            </ul>
+            <div style={{ display: 'flex', columnGap: '20px' }}>
+              <Link to='add-post'>
+                <MyButton
+                  background="#7329c2"
+                  hoverBackground="#03d665"
+                  type="primary"
+                >
+                  Cоздать пост
+                </MyButton>
+              </Link>
+              <MyButton
+                background="#7329c2"
+                hoverBackground="#03d665"
+                type="primary"
+              >
+                Выйти
+              </MyButton>
+            </div>
+          </>
+        </nav>
+
+
+      }
     </header>
   );
 };

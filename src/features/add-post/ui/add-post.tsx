@@ -1,9 +1,13 @@
-import React from 'react';
+import { FC } from 'react';
 
-const AddPost = () => {
+const AddPost: FC = () => {
   return (
-    <div>
+    <div
+      style={{marginTop: '100px'}}
+    >
       addpoostsdasad
     </div>
   );
 };
+
+export default AddPost;
