@@ -12,7 +12,6 @@ export const userRegistration = createAsyncThunk<void, IUserRegistration>(
 
       // Сохраняем токен пользователя
       localStorage.setItem("token", JSON.stringify(data.tokens.access));
-
       return data.token;
     } catch ({ response }: any) {
       console.log(response.data.email[0]);
