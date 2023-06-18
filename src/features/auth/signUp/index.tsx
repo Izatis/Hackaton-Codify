@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import s from "./style.module.scss";
-
+  
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import ParticlesComponent from "shared/ui/Particles/Particles";
@@ -37,6 +37,7 @@ const SignUp: FC = () => {
     if (password !== passwordСonfirmation) {
       setPasswordMismatchMessage("Пароли не совпадают!");
     } else {
+
       dispatch(userRegistration(values));
     }
   };
