@@ -4,7 +4,7 @@ import s from "./Header.module.scss";
 import cn from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import MyButton from "shared/ui/animate-button";
 import { Link } from "react-router-dom";
@@ -88,6 +88,13 @@ const Header: FC = () => {
     setSideBarActive(!sideBarActive);
   };
   const [t, i18next] = useTranslation();
+
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    navigate('/')
+    localStorage.clear()
+  }
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
@@ -203,7 +210,7 @@ const Header: FC = () => {
               </li>
 
               <li>
-                <Link to='all-post'>
+                <Link to='post-list'>
                   Общая лента
                 </Link>
               </li>
@@ -231,6 +238,7 @@ const Header: FC = () => {
                 </MyButton>
               </Link>
               <MyButton
+                onClick={logOut}
                 background="#7329c2"
                 hoverBackground="#03d665"
                 type="primary"

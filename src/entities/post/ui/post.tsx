@@ -2,12 +2,14 @@ import { FC } from "react";
 import s from "./post.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faEllipsis,
   faHeart,
   faThumbsDown,
   faVolumeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 import picked from "shared/image/Vector.svg";
 import { IPost } from "widgets/post-list/ui/post-list";
+import { DislikeOutlined, HeartOutlined, ShareAltOutlined } from "@ant-design/icons";
 
 interface IPostProps {
   post: IPost;
@@ -26,13 +28,14 @@ const Post: FC<IPostProps> = ({ post }) => {
           >
             <h3
               className={s.card__supcontent_name}
-              style={{ marginRight: "20px" }}
+            // style={{ marginRight: "20px" }}
             >
-              {post.author}
-              <img src={picked} alt="author" />
+              {/* {post.author} */}
+              {/* <img src={picked} alt="author" /> */}
             </h3>
-            <p className={s.card__supcontent_rating}>Рейтинг: 10 баллов</p>
+            <p className={s.card__supcontent_rating}>Рейтинг : 10 баллов</p>
           </div>
+          <FontAwesomeIcon icon={faEllipsis} />
         </span>
         <span className={s.card__supcontent_bottom}>
           <h2 className={s.card__supcontent_title}>{post.title}</h2>
@@ -47,23 +50,32 @@ const Post: FC<IPostProps> = ({ post }) => {
             alignItems: "center",
           }}
         >
-          <p style={{ marginRight: "20px" }}>{post.custom_user}</p>
+          <p style={{ marginRight: '20px' }}>Address:</p>
           <p>{post.address}</p>
         </span>
-        <span>#hashtag</span>
-        <span>
-          <FontAwesomeIcon icon={faVolumeHigh} />{" "}
+        <span
+          style={{
+            fontWeight: 700,
+            marginTop: '5px',
+            marginBottom: '5px'
+          }}>
+          #hashtag #hashtag #hashtag #hashtag #hashtag
+        </span>
+        <span style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+          <ShareAltOutlined />
           <span>
-            <FontAwesomeIcon icon={faThumbsDown} />
-            <FontAwesomeIcon icon={faHeart} />
+            <DislikeOutlined style={{ marginRight: '20px' }} />
+            <HeartOutlined />
           </span>
         </span>
+        <hr />
+        <p style={{ marginTop: '10px' }}>Name</p>
+        <p style={{ marginTop: '5px', marginBottom: '5px' }}>{post.text}</p>
         <div>
-          <p>{post.author}</p>
-          <p>{post.text}</p>
-          <p>{post.created_at}</p>
+          {/* <p>{post.author}</p> */}
+          <p style={{ borderBottom: '1px solid #000', width: '40%' }} >Показать следующие комментарии</p>
         </div>
-        <p>Показать следующие комментарии</p>
+        <p style={{ textAlign: 'right', marginBottom: '10px' }}>{post.created_at}</p>
       </div>
     </div>
   );

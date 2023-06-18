@@ -5,7 +5,7 @@ const AddPost: FC = () => {
     <div
       style={{marginTop: '100px'}}
     >
-      addpoostsdasad
+      
     </div>
   );
 };
