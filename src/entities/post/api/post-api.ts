@@ -96,7 +96,18 @@ export const post = createApi({
       },
     }),
 
+    addComment: build.mutation({
+      query: ({token, body}) => ({
+        url:  'v1/walls/comment',
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body,
+      })
+    })
+
   }),
 });
 
-export const { useGetPostsQuery, useGetPostByDateQuery, useGetPostByCommentsQuery } = post;
+export const { useGetPostsQuery, useGetPostByDateQuery, useGetPostByCommentsQuery, useAddCommentMutation } = post;
