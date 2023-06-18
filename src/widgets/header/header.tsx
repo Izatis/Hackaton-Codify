@@ -2,12 +2,14 @@ import { FC, useEffect, useRef, useState } from "react";
 import s from "./Header.module.scss";
 
 import cn from "classnames";
+import WechatOutlind from "@ant-design/icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import MyButton from "shared/ui/animate-button";
 import { Link } from "react-router-dom";
+import { faGraduationCap, faUser } from "@fortawesome/free-solid-svg-icons";
 interface ILine {
   width: number;
   left: number;
@@ -91,15 +93,11 @@ const Header: FC = () => {
 
   return (
     <header className={cn(s.header, { [s.active]: isHeaderActive })}>
-      {pathname === '/' || pathname === '/login' || pathname === '/register'
-        ?
+      {pathname === "/" || pathname === "/login" || pathname === "/register" ? (
         <nav className={s.header__nav}>
           <>
             <a href="#">
-              <FontAwesomeIcon
-                icon={faGraduationCap}
-                className={s.header__logo}
-              />
+              <FontAwesomeIcon icon={faUser} className={s.header__logo} />
             </a>
 
             <ul className={s.header__list}>
@@ -183,45 +181,31 @@ const Header: FC = () => {
           /> */}
           </div>
         </nav>
-
-        :
-
+      ) : (
         <nav className={s.header__nav}>
           <>
             <a href="#">
-              <FontAwesomeIcon
-                icon={faGraduationCap}
-                className={s.header__logo}
-              />
+              <FontAwesomeIcon icon={faUser} className={s.header__logo} />
             </a>
-            <ul style={{ display: 'flex', columnGap: '20px' }}>
-
+            <ul style={{ display: "flex", columnGap: "20px" }}>
               <li>
-                <Link to='profile'>
-                  Мой профиль
-                </Link>
-              </li>
-              
-              <li>
-                <Link to='#'>
-                  Общая лента
-                </Link>
+                <Link to="profile">Мой профиль</Link>
               </li>
 
               <li>
-                <Link to='#'>
-                  Мой район
-                </Link>
+                <Link to="#">Общая лента</Link>
               </li>
 
               <li>
-                <Link to='#'>
-                  Мои подписки
-                </Link>
+                <Link to="#">Мой район</Link>
+              </li>
+
+              <li>
+                <Link to="#">Мои подписки</Link>
               </li>
             </ul>
-            <div style={{ display: 'flex', columnGap: '20px' }}>
-              <Link to='add-post'>
+            <div style={{ display: "flex", columnGap: "20px" }}>
+              <Link to="add-post">
                 <MyButton
                   background="#7329c2"
                   hoverBackground="#03d665"
@@ -230,19 +214,10 @@ const Header: FC = () => {
                   Cоздать пост
                 </MyButton>
               </Link>
-              <MyButton
-                background="#7329c2"
-                hoverBackground="#03d665"
-                type="primary"
-              >
-                Выйти
-              </MyButton>
             </div>
           </>
         </nav>
-
-
-      }
+      )}
     </header>
   );
 };

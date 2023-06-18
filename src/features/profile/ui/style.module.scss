@@ -1,0 +1,224 @@
+@import "shared/styles/adaptive";
+@import "shared/styles/variables";
+
+.setting {
+  .setting__static {
+    position: relative;
+
+    .coverFirst {
+      width: 100%;
+      height: 200px;
+    }
+
+    .coverSecond {
+      display: none;
+      width: 100%;
+      height: 200px;
+      background: #f3f3f3;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .setting__avatar {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: 15%;
+      bottom: -1%;
+      cursor: pointer;
+    }
+
+    .setting__list {
+      position: fixed;
+      top: 200px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100vh;
+      width: 80px;
+      display: flex;
+      gap: 20px;
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        a {
+          font-weight: 700;
+          @include adaptive-value("font-size", 18, 5, 0d);
+          line-height: 130%;
+          color: #322f55;
+        }
+
+        &:hover a {
+          color: #03d665;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+
+
+.myProfile__buttonFirst {
+  background-color: #7329c2;
+  border: 1px solid #7329c2;
+  color: #ffffff;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #7329c2 !important;
+    color: #7329c2 !important;
+    transition: all 0.5s;
+  }
+}
+
+.myProfile__buttonSecond {
+  background-color: #03d665;
+  border: 1px solid #03d665;
+  color: #ffffff;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #03d665 !important;
+    color: #03d665 !important;
+    transition: all 0.5s;
+  }
+}
+
+.myProfile {
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+
+  .myProfile__content {
+    margin: 5% 20%;
+
+    .container {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+
+      .myProfile__list {
+        .myProfile__fullName {
+          font-weight: 500;
+          @include adaptive-value("font-size", 30, 20, 0);
+          line-height: 140%;
+        }
+
+        .myProfile__email {
+          font-weight: 700;
+          @include adaptive-value("font-size", 18, 12, 0);
+          line-height: 160%;
+          color: #838383;
+        }
+
+        .myProfile__dateOfBirth {
+          font-weight: 700;
+          @include adaptive-value("font-size", 18, 12, 0);
+          line-height: 160%;
+          color: #7329c2;
+        }
+      }
+
+      .myProfile__buttonFirst {
+        background-color: #7329c2;
+        border: 1px solid #7329c2;
+        color: #ffffff;
+        transition: all 0.5s;
+        margin: 0 0 10px;
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid #7329c2 !important;
+          color: #7329c2 !important;
+          transition: all 0.5s;
+        }
+      }
+
+      .myProfile__buttonSecond {
+        background-color: #03d665;
+        border: 1px solid #03d665;
+        color: #ffffff;
+        transition: all 0.5s;
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid #03d665 !important;
+          color: #03d665 !important;
+          transition: all 0.5s;
+        }
+      }
+    }
+
+    .text {
+      max-width: 600px;
+      margin: 5% 0;
+      font-weight: 400;
+      @include adaptive-value("font-size", 18, 12, 0);
+      line-height: 160%;
+    }
+
+    .myProfile__buttons {
+      display: flex;
+      gap: 20px;
+
+      .myProfile__buttonFirsts {
+        background-color: #7329c2;
+        border: 1px solid #7329c2;
+        color: #ffffff;
+        transition: all 0.5s;
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid #7329c2;
+          color: #7329c2;
+          transition: all 0.5s;
+        }
+      }
+
+      .myProfile__buttonSecond {
+        background-color: #03d665;
+        border: 1px solid #03d665;
+        color: #ffffff;
+        transition: all 0.5s;
+
+        &:hover {
+          background-color: transparent;
+          border: 1px solid #03d665;
+          color: #03d665;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+
+  .loading {
+    margin: -300px 0 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .myProfile {
+    .myProfile__content {
+      position: relative;
+      margin: 5%;
+    }
+  }
+}
+
+}
+
+@media (max-width: 768px) {
+  .setting {
+    .setting__static {
+      .coverFirst {
+        display: none;
+      }
+
+      .coverSecond {
+        display: block;
+      }
+    }
+  }
+}

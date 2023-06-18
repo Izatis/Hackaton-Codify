@@ -52,7 +52,7 @@ const Post: FC<IPostProps> = ({ post }) => {
         </span>
         <span>#hashtag</span>
         <span>
-          <FontAwesomeIcon icon={faVolumeHigh} />{" "}
+          <FontAwesomeIcon icon={faVolumeHigh} />
           <span>
             <FontAwesomeIcon icon={faThumbsDown} />
             <FontAwesomeIcon icon={faHeart} />
